@@ -1,0 +1,66 @@
+title notes diagram
+
+note over browser:
+We make a request to get the basic 
+information to load the page 'notes'.
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+
+server-->browser: notes.html file
+note over server:
+The server returns the HTML code.
+end note
+
+
+note over browser
+Because the HTML code obtained had 
+a link to the stylesheet, we make 
+another GET request to obtain this information.
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+
+
+server-->browser: main.css file
+note over server:
+The server returns the Css code.
+end note
+
+
+note over browser:
+In the HTML code there was also a 
+script that loads the JS. So we make 
+another GET request to get it.
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+
+server-->browser: main.js
+note over server:
+The server returns the Js code.
+end note
+
+
+note over browser:
+Browser starts executing js-code
+that requests JSON data from server 
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{"content": "Hello There","date": "2023-07-12T04:53:52.019Z" }, ...]
+note over server:
+Server returns data json.
+end note
+
+
+note over browser:
+Browser executes the event handler
+that renders notes to display.
+end note
+
+note over browser:
+User send a new note.
+The form POST it to /new_note
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note
+server-->browser:  https://studies.cs.helsinki.fi/exampleapp/notes
+note over server:
+It redirect the user to /exampleapp/notes
+end note
