@@ -1,0 +1,17 @@
+title spa notes diagram
+
+note over browser:
+User send the form.
+Inside the form it parsed the info to format
+a note object.
+Then:
+-> The note object is added to the notes array
+-> It redraw the notes into the HTML
+-> Send the note to the server
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+server-->browser:  Server response
+note over server:
+If post response code is 201, the server response
+will be {"message":"note created"}
+end note
